@@ -12,11 +12,11 @@ interface Rule
     /**
      * Resolves itself then resolves its childrens explain function to get a tree to see rule behaviour
      *
-     * @param Carbon $date
+     * @param Carbon|null $date
      * @return ExplainerNode
      * @throws InvalidConfigurationException
      */
-    public function explain(Carbon $date): ExplainerNode;
+    public function explain(?Carbon $date = null): ExplainerNode;
 
     /**
      * Validates the date against the current rule
@@ -51,6 +51,7 @@ interface Rule
     /**
      * @return array
      */
+    #[\ReturnTypeWillChange]
     public function jsonSerialize();
 
     /**

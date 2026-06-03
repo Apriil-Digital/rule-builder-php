@@ -132,6 +132,7 @@ abstract class DateRule implements Rule, JsonSerializable, Jsonable, Arrayable
     /**
      * @return array
      */
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return $this->toArray();
@@ -169,11 +170,11 @@ abstract class DateRule implements Rule, JsonSerializable, Jsonable, Arrayable
     /**
      * Resolves itself then resolves its childrens explain function to get a tree to see rule behaviour
      *
-     * @param Carbon $date
+     * @param Carbon|null $date
      * @return ExplainerNode
      * @throws InvalidConfigurationException
      */
-    public function explain(Carbon $date = null): ExplainerNode
+    public function explain(?Carbon $date = null): ExplainerNode
     {
         $date = $date ?? Carbon::now();
         $children = [];
