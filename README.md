@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-composer require apility/rule-builder
+composer require apriil/rule-builder
 ```
 
 ## Example usage
